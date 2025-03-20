@@ -1,0 +1,43 @@
+{
+  "tasks": {
+    "start": "./start.sh",
+    "dev": "deno run --watch --allow-net --allow-read --allow-write --allow-env api.ts",
+    "check": "deno check api.ts",
+    "start:parallel": "ENABLE_PARALLEL=true ./start.sh",
+    "test": "deno test --allow-net --allow-read",
+    "lint": "deno lint",
+    "fmt": "deno fmt"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "lint": {
+    "include": ["**/*.ts"],
+    "rules": {
+      "tags": ["recommended"],
+      "exclude": []
+    }
+  },
+  "fmt": {
+    "include": ["**/*.ts"],
+    "exclude": [],
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "proseWrap": "preserve",
+    "singleQuote": false,
+    "useTabs": false
+  },
+  "imports": {
+    "@openai/openai": "jsr:@openai/openai@^4.89.0",
+    "@/": "./",
+    "std/": "https://deno.land/std@0.220.0/",
+    "lib/": "./"
+  }
+}
