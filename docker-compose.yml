@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "4004:4004"
+    volumes:
+      - .:/app
+    environment:
+      - DENO_DIR=/app/cache
+    restart: unless-stopped
